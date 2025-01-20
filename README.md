@@ -7,7 +7,7 @@ A simple inventory management application built using the MERN (MongoDB, Express
 
 Click the link below to see the demonstration of the Inventory Management System.
 
-Link 👉 https://drive.google.com/file/d/1fv5oivgJvF6oLoahqo4-VJpjvy_NWjU0/view?usp=sharing 👈
+Link 👉 https://drive.google.com/file/d/1xIs-DCK_i5kxAdK-y5DGyroxtF10YSpV/view?usp=sharing 👈
 
 
 ## Features
