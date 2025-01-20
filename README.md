@@ -88,7 +88,11 @@ npm run dev
 
 ## Screenshots
 
-![image alt](https://github.com/MrTharinduDasantha/Task-Manager-App/blob/4cca78570be31972631aaaae4ea58edcfd3f1e49/Img%20-%201.png)
-![image alt](https://github.com/MrTharinduDasantha/Task-Manager-App/blob/4cca78570be31972631aaaae4ea58edcfd3f1e49/Img%20-%202.png)
+![image alt](https://github.com/MrTharinduDasantha/Inventory-Management-System/blob/d912ba58187ec36094e574b9ec8512b4f06b0dd7/Img%20-%201.png)
+![image alt](https://github.com/MrTharinduDasantha/Inventory-Management-System/blob/d912ba58187ec36094e574b9ec8512b4f06b0dd7/Img%20-%202.png)
+![image alt](https://github.com/MrTharinduDasantha/Inventory-Management-System/blob/d912ba58187ec36094e574b9ec8512b4f06b0dd7/Img%20-%203.png)
+![image alt](https://github.com/MrTharinduDasantha/Inventory-Management-System/blob/d912ba58187ec36094e574b9ec8512b4f06b0dd7/Img%20-%204.png)
+![image alt](https://github.com/MrTharinduDasantha/Inventory-Management-System/blob/d912ba58187ec36094e574b9ec8512b4f06b0dd7/Img%20-%205.png)
+![image alt](https://github.com/MrTharinduDasantha/Inventory-Management-System/blob/d912ba58187ec36094e574b9ec8512b4f06b0dd7/Img%20-%206.png)
 
 <h4 align="center"> Don't forget to leave a star ⭐️ </h4>
