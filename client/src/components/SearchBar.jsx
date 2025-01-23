@@ -9,10 +9,10 @@ const SearchBar = ({ onSearch }) => {
     onSearch(e.target.value);
   };
   return (
-    <div className="mb-4">
+    <div className="flex-grow">
       <input
         type="text"
-        placeholder="Search for a product..."
+        placeholder="Search for a product ..."
         value={query}
         onChange={handleSearch}
         className="w-full border rounded p-2"

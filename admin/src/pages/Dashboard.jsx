@@ -1,27 +1,22 @@
-import { useState, useEffect } from "react";
-import { getProducts } from "../api/productApi";
-import AddProduct from "../components/AddProduct";
-import ProductList from "../components/ProductList";
+import { Outlet, useLocation } from "react-router-dom";
+import Sidebar from "../components/Sidebar";
 
 const Dashboard = () => {
-  const [products, setProducts] = useState([]);
-
-  const fetchProducts = async () => {
-    try {
-      const { data } = await getProducts();
-      setProducts(data.products);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    fetchProducts();
-  }, []);
+  const location = useLocation();
   return (
-    <div className="p-6">
-      <AddProduct fetchProducts={fetchProducts} />
-      <ProductList products={products} fetchProducts={fetchProducts} />
+    <div className="flex">
+      <Sidebar />
+      <div className="flex-grow bg-gray-100">
+        {location.pathname === "/" ? (
+          <div className="flex items-center justify-center h-full">
+            <h1 className="text-3xl font-bold text-gray-800">
+              Welcome to Admin Panel
+            </h1>
+          </div>
+        ) : (
+          <Outlet />
+        )}
+      </div>
     </div>
   );
 };

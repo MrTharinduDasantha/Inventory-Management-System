@@ -1,38 +1,27 @@
-import { useState, useEffect } from "react";
-import { getProducts } from "../api/productApi";
 import ProductCard from "../components/ProductCard";
 import SearchBar from "../components/SearchBar";
-import { toast } from "react-hot-toast";
+import { useApp } from "../context/AppContext";
+import { useNavigate } from "react-router-dom";
+import { FiShoppingCart } from "react-icons/fi";
 
 const ProductPage = () => {
-  const [products, setProducts] = useState([]);
-  const [filteredProducts, setFilteredProducts] = useState([]);
-
-  const fetchProducts = async () => {
-    try {
-      const { data } = await getProducts();
-      setProducts(data.products);
-      setFilteredProducts(data.products);
-    } catch (error) {
-      toast.error(error.response.data.message);
-    }
-  };
-
-  const handleSearch = (query) => {
-    const filtered = products.filter((product) => {
-      return product.name.toLowerCase().includes(query.toLowerCase());
-    });
-    console.log(filtered);
-    setFilteredProducts(filtered);
-  };
-
-  useEffect(() => {
-    fetchProducts();
-  }, []);
+  const { cart, handleSearch, products, filteredProducts } = useApp();
+  const navigate = useNavigate();
 
   return (
     <div className="p-6">
-      <SearchBar onSearch={handleSearch} />
+      <div className="flex justify-between items-center mb-4">
+        <h1 className="text-2xl font-bold mr-5">Inventory Management System</h1>
+        <SearchBar onSearch={handleSearch} />
+        <div className="flex items-center ml-5">
+          <button onClick={() => navigate("/cart")} className="p-2 relative">
+            <FiShoppingCart className="text-3xl" />
+            <span className="absolute bg-red-500 text-white rounded-full -top-2 right-0 p-1 text-xs font-bold">
+              {cart.length}
+            </span>
+          </button>
+        </div>
+      </div>
       <div>
         {products.length > 0 ? (
           filteredProducts.length > 0 ? (
