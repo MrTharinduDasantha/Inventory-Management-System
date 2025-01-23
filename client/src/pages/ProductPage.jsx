@@ -16,7 +16,7 @@ const ProductPage = () => {
         <div className="flex items-center ml-5">
           <button onClick={() => navigate("/cart")} className="p-2 relative">
             <FiShoppingCart className="text-3xl" />
-            <span className="absolute bg-red-500 text-white rounded-full -top-2 right-0 p-1 text-xs font-bold">
+            <span className="absolute bg-red-500 text-white rounded-full -top-1 right-0 px-2 py-1 text-xs font-bold">
               {cart.length}
             </span>
           </button>
