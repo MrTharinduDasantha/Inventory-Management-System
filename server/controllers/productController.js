@@ -76,4 +76,21 @@ const deleteProduct = async (req, res) => {
   }
 };
 
-export { addProduct, getProducts, updateProduct, deleteProduct };
+// Function to update product inventory
+const updateProductInventory = async (productId, quantityChange) => {
+  const product = await Product.findById(productId);
+  if (!product) throw new Error("Product not found");
+  if (product.quantity + quantityChange < 0)
+    throw new Error("Insufficient stock");
+
+  product.quantity += quantityChange;
+  await product.save();
+};
+
+export {
+  addProduct,
+  getProducts,
+  updateProduct,
+  deleteProduct,
+  updateProductInventory,
+};

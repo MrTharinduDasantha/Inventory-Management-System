@@ -1,13 +1,22 @@
 import mongoose from "mongoose";
 
-const productSchema = new mongoose.Schema({
+const ProductSchema = new mongoose.Schema({
   name: { type: String, required: true },
-  image: { type: String, required: true },
-  quantity: { type: Number, required: true },
   price: { type: Number, required: true },
+  quantity: { type: Number, required: true }, // Inventory count
+  image: { type: String, required: true },
 });
 
+ProductSchema.methods.decreaseQuantity = async function (amount) {
+  if (this.quantity >= amount) {
+    this.quantity -= amount;
+    await this.save();
+  } else {
+    throw new Error("Insufficient stock for this product.");
+  }
+};
+
 const Product =
-  mongoose.models.Product || mongoose.model("Product", productSchema);
+  mongoose.models.Product || mongoose.model("Product", ProductSchema);
 
 export default Product;

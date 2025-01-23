@@ -3,8 +3,10 @@ import { toast } from "react-hot-toast";
 import EditProduct from "./EditProduct";
 import PropTypes from "prop-types";
 import { useState } from "react";
+import { GrUpdate } from "react-icons/gr";
+import { MdOutlineDeleteOutline } from "react-icons/md";
 
-const ProductList = ({ products, fetchProducts }) => {
+const ProductList = ({ products, fetchProducts, loading }) => {
   const [editProduct, setEditProduct] = useState(null);
   const [isEditComponentOpen, setIsEditComponentOpen] = useState(false);
 
@@ -23,9 +25,17 @@ const ProductList = ({ products, fetchProducts }) => {
     setIsEditComponentOpen(true);
   };
 
+  if (loading) {
+    return (
+      <div className="h-[100vh] flex items-center justify-center text-xl font-bold">
+        Loading Products ...
+      </div>
+    );
+  }
+
   return (
     <>
-      {products.length > 0 ? (
+      {products.length ? (
         <div className="p-4 bg-white rounded shadow-md">
           <h2 className="text-xl font-bold mb-4">Product List</h2>
           <table className="w-full border-collapse border border-gray-300">
@@ -56,19 +66,22 @@ const ProductList = ({ products, fetchProducts }) => {
                     Rs. {product.price}/=
                   </td>
                   <td className="border border-gray-300 p-2">
-                    <button
-                      onClick={() => handleEdit(product)}
-                      className="bg-yellow-500 text-white px-4 py-1 rounded mr-2"
-                    >
-                      Update
-                    </button>
-                    <span>Or</span>
-                    <button
-                      onClick={() => handleDelete(product._id)}
-                      className="bg-red-500 text-white px-4 py-1 rounded ml-2"
-                    >
-                      Delete
-                    </button>
+                    <div className="flex justify-center gap-2">
+                      <button
+                        onClick={() => handleEdit(product)}
+                        className="bg-yellow-500 text-white px-4 py-1 rounded mr-2 flex items-center justify-center gap-2"
+                      >
+                        Update
+                        <GrUpdate size={15} />
+                      </button>
+                      <button
+                        onClick={() => handleDelete(product._id)}
+                        className="bg-red-500 text-white px-4 py-1 rounded ml-2 flex items-center justify-center gap-2"
+                      >
+                        Delete
+                        <MdOutlineDeleteOutline size={20} />
+                      </button>
+                    </div>
                   </td>
                 </tr>
               ))}
@@ -84,7 +97,9 @@ const ProductList = ({ products, fetchProducts }) => {
           )}
         </div>
       ) : (
-        <></>
+        <div className="h-[100vh] flex items-center justify-center text-xl font-bold">
+          No Products Found
+        </div>
       )}
     </>
   );
@@ -93,6 +108,7 @@ const ProductList = ({ products, fetchProducts }) => {
 ProductList.propTypes = {
   products: PropTypes.array.isRequired,
   fetchProducts: PropTypes.func.isRequired,
+  loading: PropTypes.bool.isRequired,
 };
 
 export default ProductList;
