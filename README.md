@@ -88,11 +88,13 @@ npm run dev
 
 ## Screenshots
 
-![image alt](https://github.com/MrTharinduDasantha/Inventory-Management-System/blob/3618558c861c9432272f238843d5f0d972d07662/Img%20-%201.png)
-![image alt](https://github.com/MrTharinduDasantha/Inventory-Management-System/blob/3618558c861c9432272f238843d5f0d972d07662/Img%20-%202.png)
-![image alt](https://github.com/MrTharinduDasantha/Inventory-Management-System/blob/3618558c861c9432272f238843d5f0d972d07662/Img%20-%203.png)
-![image alt](https://github.com/MrTharinduDasantha/Inventory-Management-System/blob/3618558c861c9432272f238843d5f0d972d07662/Img%20-%204.png)
-![image alt](https://github.com/MrTharinduDasantha/Inventory-Management-System/blob/3618558c861c9432272f238843d5f0d972d07662/Img%20-%205.png)
-![image alt](https://github.com/MrTharinduDasantha/Inventory-Management-System/blob/3618558c861c9432272f238843d5f0d972d07662/Img%20-%206.png)
+![image alt](https://github.com/MrTharinduDasantha/Inventory-Management-System/blob/eb216eb0f2597d587ee5dda6d5174337f22f5197/Img%20-%201.png)
+![image alt](https://github.com/MrTharinduDasantha/Inventory-Management-System/blob/eb216eb0f2597d587ee5dda6d5174337f22f5197/Img%20-%202.png)
+![image alt](https://github.com/MrTharinduDasantha/Inventory-Management-System/blob/eb216eb0f2597d587ee5dda6d5174337f22f5197/Img%20-%203.png)
+![image alt](https://github.com/MrTharinduDasantha/Inventory-Management-System/blob/eb216eb0f2597d587ee5dda6d5174337f22f5197/Img%20-%204.png)
+![image alt](https://github.com/MrTharinduDasantha/Inventory-Management-System/blob/eb216eb0f2597d587ee5dda6d5174337f22f5197/Img%20-%205.png)
+![image alt](https://github.com/MrTharinduDasantha/Inventory-Management-System/blob/eb216eb0f2597d587ee5dda6d5174337f22f5197/Img%20-%206.png)
+![image alt](https://github.com/MrTharinduDasantha/Inventory-Management-System/blob/eb216eb0f2597d587ee5dda6d5174337f22f5197/Img%20-%207.png)
+![image alt](https://github.com/MrTharinduDasantha/Inventory-Management-System/blob/eb216eb0f2597d587ee5dda6d5174337f22f5197/Img%20-%208.png)
 
 <h4 align="center"> Don't forget to leave a star ⭐️ </h4>
