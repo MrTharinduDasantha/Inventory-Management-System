@@ -1,9 +1,11 @@
 import { useApp } from "../context/AppContext";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import Popup from "../components/Popup";
 
 const CartPage = () => {
-  const { cart, removeFromCart, increaseQuantity, decreaseQuantity, order } =
-    useApp();
+  const { cart, removeFromCart, increaseQuantity, decreaseQuantity } = useApp();
+  const [showPopup, setShowPopup] = useState(false);
 
   return (
     <div className="p-6">
@@ -72,7 +74,7 @@ const CartPage = () => {
                 /=
               </p>
               <button
-                onClick={() => order()}
+                onClick={() => setShowPopup(true)}
                 className="bg-blue-600 text-white px-4 py-2 rounded"
               >
                 Order Now
@@ -83,6 +85,8 @@ const CartPage = () => {
           <p className="text-lg font-semibold">Your cart is empty</p>
         )}
       </div>
+
+      {showPopup && <Popup setShowPopup={setShowPopup} />}
     </div>
   );
 };

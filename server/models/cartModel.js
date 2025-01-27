@@ -7,7 +7,6 @@ const CartSchema = new mongoose.Schema({
     required: true,
   },
   quantity: { type: Number, required: true },
-  userId: { type: String, required: true },
 });
 
 const Cart = mongoose.models.Cart || mongoose.model("Cart", CartSchema);

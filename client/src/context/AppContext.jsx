@@ -11,9 +11,6 @@ import {
 } from "../api/cartApi";
 const AppContext = createContext();
 
-// Temporary userId for backend interactions
-const TEMP_USER_ID = "mr_tharindu";
-
 export const AppProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
   const [products, setProducts] = useState([]);
@@ -42,7 +39,7 @@ export const AppProvider = ({ children }) => {
   // Fetch the cart items on initial load
   const fetchCart = async () => {
     try {
-      const { data } = await getCart(TEMP_USER_ID);
+      const { data } = await getCart();
       setCart(data);
     } catch (error) {
       toast.error(error.response?.data?.message || "Failed to fetch cart");
@@ -60,7 +57,6 @@ export const AppProvider = ({ children }) => {
       const { data } = await addCart({
         productId: product._id,
         quantity: 1,
-        userId: TEMP_USER_ID,
       });
       setCart(data);
       fetchCart();
@@ -119,14 +115,11 @@ export const AppProvider = ({ children }) => {
   };
 
   // Checkout the cart
-  const order = async () => {
+  const order = async (formData) => {
     try {
-      const { data } = await checkout({
-        userId: TEMP_USER_ID,
-      });
+      const { data } = await checkout(formData);
       toast.success(data.message);
       setCart([]);
-      window.location.href = "/";
     } catch (error) {
       toast.error(error.response?.data?.message || "Failed to checkout");
     }
