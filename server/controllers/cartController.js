@@ -84,10 +84,10 @@ const updateCart = async (req, res) => {
 
 // Function to checkout cart
 const checkoutCart = async (req, res) => {
-  const { userId } = req.body;
+  const { name, contact, address } = req.body;
 
   try {
-    const cartItems = await Cart.find({ userId }).populate("productId");
+    const cartItems = await Cart.find().populate("productId");
     if (!cartItems.length) {
       return res.status(400).json({ message: "Cart is empty" });
     }
@@ -104,15 +104,17 @@ const checkoutCart = async (req, res) => {
         quantity: item.quantity,
       })),
       total,
-      userId,
+      name,
+      contact,
+      address,
     });
 
     await order.save();
 
     // Clear cart
-    await Cart.deleteMany({ userId });
+    await Cart.deleteMany();
 
-    res.status(200).json({ message: "Order placed successfully", order });
+    res.status(200).json({ message: "Your order placed successfully", order });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -120,10 +122,8 @@ const checkoutCart = async (req, res) => {
 
 // Function to get cart details
 const getCart = async (req, res) => {
-  const { userId } = req.params;
-
   try {
-    const cartItems = await Cart.find({ userId }).populate("productId");
+    const cartItems = await Cart.find().populate("productId");
     res.status(200).json(cartItems);
   } catch (error) {
     res.status(500).json({ message: error.message });
