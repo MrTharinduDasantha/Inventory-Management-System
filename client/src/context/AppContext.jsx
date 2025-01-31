@@ -9,22 +9,44 @@ import {
   removeCart,
   updateCart,
 } from "../api/cartApi";
+
 const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [priceSort, setPriceSort] = useState("");
 
   // Fetch all products
   const fetchProducts = async () => {
     try {
       const { data } = await getProducts();
       setProducts(data.products);
-      setFilteredProducts(data.products);
+      applyFilters(data.products, selectedCategory, priceSort); // Apply filters on initial load
     } catch (error) {
       toast.error(error.response.data.message);
     }
+  };
+
+  // Helper function to apply both category and price filters
+  const applyFilters = (products, category, sortOrder) => {
+    let filtered = products;
+
+    // Apply category filter
+    if (category !== "All") {
+      filtered = filtered.filter((product) => product.category === category);
+    }
+
+    // Apply price sorting
+    if (sortOrder === "lowToHigh") {
+      filtered = [...filtered].sort((a, b) => a.price - b.price);
+    } else if (sortOrder === "highToLow") {
+      filtered = [...filtered].sort((a, b) => b.price - a.price);
+    }
+
+    setFilteredProducts(filtered);
   };
 
   // Search for products by name
@@ -32,8 +54,19 @@ export const AppProvider = ({ children }) => {
     const filtered = products.filter((product) => {
       return product.name.toLowerCase().includes(query.toLowerCase());
     });
-    console.log(filtered);
-    setFilteredProducts(filtered);
+    applyFilters(filtered, selectedCategory, priceSort); // Apply filters after search
+  };
+
+  // Filter products by category
+  const filterByCategory = (category) => {
+    setSelectedCategory(category);
+    applyFilters(products, category, priceSort); // Apply filters after category change
+  };
+
+  // Filter products by price
+  const filterByPrice = (sortOrder) => {
+    setPriceSort(sortOrder);
+    applyFilters(products, selectedCategory, sortOrder); // Apply filters after price change
   };
 
   // Fetch the cart items on initial load
@@ -139,6 +172,10 @@ export const AppProvider = ({ children }) => {
         decreaseQuantity,
         order,
         fetchCart,
+        filterByCategory,
+        filterByPrice,
+        selectedCategory,
+        priceSort,
       }}
     >
       {children}

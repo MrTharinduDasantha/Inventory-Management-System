@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { addProduct } from "../api/productApi";
 import { toast } from "react-hot-toast";
-import PropTypes from "prop-types";
 
-const AddProduct = ({ fetchProducts }) => {
+const AddProduct = () => {
   const [product, setProduct] = useState({
     name: "",
     quantity: "",
     price: "",
+    category: "",
     image: null,
   });
 
@@ -27,15 +27,23 @@ const AddProduct = ({ fetchProducts }) => {
     formData.append("name", product.name);
     formData.append("quantity", product.quantity);
     formData.append("price", product.price);
+    formData.append("category", product.category);
     formData.append("image", product.image);
 
     try {
       const { data } = await addProduct(formData);
+      console.log(data);
       toast.success(data.message);
-      fetchProducts();
-      setProduct({ name: "", quantity: "", price: "", image: null });
+      setProduct({
+        name: "",
+        quantity: "",
+        price: "",
+        category: "",
+        image: null,
+      });
     } catch (error) {
-      toast.error(error.response.data.message);
+      toast.error(error.response?.data?.message || "Error adding product");
+      console.log(error);
     }
   };
 
@@ -47,7 +55,7 @@ const AddProduct = ({ fetchProducts }) => {
           htmlFor="name"
           className="block text-sm font-medium text-gray-700"
         >
-          Add Product
+          Product Name
         </label>
         <input
           type="text"
@@ -98,6 +106,30 @@ const AddProduct = ({ fetchProducts }) => {
       </div>
       <div className="mb-4">
         <label
+          htmlFor="category"
+          className="block text-sm font-medium text-gray-700"
+        >
+          Category
+        </label>
+        <select
+          name="category"
+          id="category"
+          value={product.category}
+          onChange={handleChange}
+          className="mt-1 p-2 border border-gray-300 rounded w-full"
+        >
+          <option value="">Select Category</option>
+          <option value="Electronics">Electronics</option>
+          <option value="Clothing">Clothing</option>
+          <option value="Home & Kitchen">Home & Kitchen</option>
+          <option value="Beauty & Personal Care">Beauty & Personal Care</option>
+          <option value="Sports">Sports</option>
+          <option value="Furniture">Furniture</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      <div className="mb-4">
+        <label
           htmlFor="image"
           className="block text-sm font-medium text-gray-700"
         >
@@ -121,16 +153,12 @@ const AddProduct = ({ fetchProducts }) => {
       )}
       <button
         type="submit"
-        className="bg-blue-500 text-white px-4 py-2 rounded block ml-auto"
+        className="bg-blue-500 hover:bg-gray-800 transition-colors duration-300 text-white px-4 py-2 rounded block ml-auto"
       >
         Add Product
       </button>
     </form>
   );
-};
-
-AddProduct.propTypes = {
-  fetchProducts: PropTypes.func.isRequired,
 };
 
 export default AddProduct;
