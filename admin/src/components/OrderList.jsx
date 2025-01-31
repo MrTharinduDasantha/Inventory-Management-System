@@ -139,7 +139,7 @@ const OrderList = () => {
           </div>
           <button
             onClick={downloadPDF}
-            className="mt-4 bg-blue-500 text-white px-4 py-2 rounded block ml-auto"
+            className="mt-4 bg-blue-500 hover:bg-gray-800 transition-colors duration-300 text-white px-4 py-2 rounded block ml-auto"
           >
             Download as PDF
           </button>

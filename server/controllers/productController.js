@@ -3,11 +3,11 @@ import fs from "fs";
 
 // Function to add a new product
 const addProduct = async (req, res) => {
-  const { name, quantity, price } = req.body;
+  const { name, quantity, price, category } = req.body;
   const image = req.file ? req.file.path : null;
 
   try {
-    const product = new Product({ name, quantity, price, image });
+    const product = new Product({ name, quantity, price, category, image });
     const savedProduct = await product.save();
 
     res.status(201).json({
@@ -36,13 +36,13 @@ const getProducts = async (req, res) => {
 // Function to update a product
 const updateProduct = async (req, res) => {
   const { id } = req.params;
-  const { name, quantity, price } = req.body;
+  const { name, quantity, price, category } = req.body;
   const image = req.file ? req.file.path : null;
 
   try {
     const updatedProduct = await Product.findByIdAndUpdate(
       id,
-      { name, image, quantity, price },
+      { name, image, quantity, price, category },
       { new: true }
     );
 

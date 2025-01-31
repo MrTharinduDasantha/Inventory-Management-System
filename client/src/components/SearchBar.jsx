@@ -15,7 +15,7 @@ const SearchBar = ({ onSearch }) => {
         placeholder="Search for a product ..."
         value={query}
         onChange={handleSearch}
-        className="w-full border rounded p-2"
+        className="bg-gray-100 text-gray-800 outline-none w-full border rounded p-2 "
       />
     </div>
   );

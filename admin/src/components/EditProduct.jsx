@@ -13,6 +13,7 @@ const EditProduct = ({
     name: product?.name || "",
     quantity: product?.quantity || "",
     price: product?.price || "",
+    category: product?.category || "",
     image: null,
   });
 
@@ -32,6 +33,7 @@ const EditProduct = ({
     formData.append("name", updatedProduct.name);
     formData.append("quantity", updatedProduct.quantity);
     formData.append("price", updatedProduct.price);
+    formData.append("category", updatedProduct.category);
     if (updatedProduct.image) {
       formData.append("image", updatedProduct.image);
     }
@@ -108,6 +110,32 @@ const EditProduct = ({
             className="mt-1 p-2 border border-gray-300 rounded w-full"
             required
           />
+        </div>
+        <div className="mb-4">
+          <label
+            htmlFor="category"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Category
+          </label>
+          <select
+            name="category"
+            id="category"
+            value={updatedProduct.category}
+            onChange={handleChange}
+            className="mt-1 p-2 border border-gray-300 rounded w-full"
+          >
+            <option value="">Select Category</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Clothing">Clothing</option>
+            <option value="Home & Kitchen">Home & Kitchen</option>
+            <option value="Beauty & Personal Care">
+              Beauty & Personal Care
+            </option>
+            <option value="Sports">Sports</option>
+            <option value="Furniture">Furniture</option>
+            <option value="Other">Other</option>
+          </select>
         </div>
         <div className="mb-4">
           <label

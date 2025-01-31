@@ -42,6 +42,7 @@ const ProductList = ({ products, fetchProducts, loading }) => {
             <thead className="bg-gray-200">
               <tr>
                 <th className="border border-gray-300 p-2">Name</th>
+                <th className="border border-gray-300 p-2">Category</th>
                 <th className="border border-gray-300 p-2">Image</th>
                 <th className="border border-gray-300 p-2">Quantity</th>
                 <th className="border border-gray-300 p-2">Price</th>
@@ -52,6 +53,9 @@ const ProductList = ({ products, fetchProducts, loading }) => {
               {products.map((product) => (
                 <tr key={product._id} className="text-center">
                   <td className="border border-gray-300 p-2">{product.name}</td>
+                  <td className="border border-gray-300 p-2">
+                    {product.category}
+                  </td>
                   <td className="border border-gray-300 p-2 flex justify-center">
                     <img
                       src={`http://localhost:3000/${product.image}`}
@@ -65,7 +69,7 @@ const ProductList = ({ products, fetchProducts, loading }) => {
                   <td className="border border-gray-300 p-2">
                     Rs. {product.price}/=
                   </td>
-                  <td className="border border-gray-300 p-2">
+                  <td className="border border-gray-300">
                     <div className="flex justify-center gap-2">
                       <button
                         onClick={() => handleEdit(product)}

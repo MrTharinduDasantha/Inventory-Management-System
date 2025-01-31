@@ -4,9 +4,9 @@ import Sidebar from "../components/Sidebar";
 const Dashboard = () => {
   const location = useLocation();
   return (
-    <div className="flex">
+    <div className="flex h-screen">
       <Sidebar />
-      <div className="flex-grow bg-gray-100">
+      <div className="flex-grow bg-gray-100 overflow-auto">
         {location.pathname === "/" ? (
           <div className="flex items-center justify-center h-full">
             <h1 className="text-3xl font-bold text-gray-800">
