@@ -7,19 +7,24 @@ A simple inventory management application built using the MERN (MongoDB, Express
 
 Click the link below to see the demonstration of the Inventory Management System.
 
-Link 👉 https://drive.google.com/file/d/1xIs-DCK_i5kxAdK-y5DGyroxtF10YSpV/view?usp=sharing 👈
+Link 👉 https://drive.google.com/file/d/1BNzDI0VLPEHEvQEXQS1YqIGkO78SArGh/view?usp=sharing 👈
 
 
 ## Features
 
 ### Admin
-- Add Product: Create new products with a name, image, quantity, and price.
+- Add Product: Create new products with a name, image, quantity, category, and price.
 - Edit Product: Update the details of an existing product.
 - Delete Product: Remove products from the inventory.
+- View Orders: View the details of all orders placed from the client side.
+- Download Order Details: Download the details of the orders as pdf.
 
 ### Client
 - View Products: Display all available products.
-- Search Products: Filter products by name.
+- Search Products: Filter products by name, category, and price.
+- Add Product to the Cart: Add any product you want to the cart.
+- Remove Product from the Cart: Remove any product from the card as needed.
+- Download Order Details: Place an order by providing name, contact number, address, and the details provided can be downloaded as a pdf if needed.
 
 
 ## Technologies Used
@@ -79,22 +84,23 @@ npm run dev
 ## Usage
 1. Admin
 - Navigate to the Admin Dashboard (http://localhost:5173).
-- Add, edit, or delete products using the admin interface.
 2. Client
 - Open the Client Interface (http://localhost:5174).
-- View all available products and use the search bar to filter by product name.
-
 
 
 ## Screenshots
 
-![image alt](https://github.com/MrTharinduDasantha/Inventory-Management-System/blob/eb216eb0f2597d587ee5dda6d5174337f22f5197/Img%20-%201.png)
-![image alt](https://github.com/MrTharinduDasantha/Inventory-Management-System/blob/eb216eb0f2597d587ee5dda6d5174337f22f5197/Img%20-%202.png)
-![image alt](https://github.com/MrTharinduDasantha/Inventory-Management-System/blob/eb216eb0f2597d587ee5dda6d5174337f22f5197/Img%20-%203.png)
-![image alt](https://github.com/MrTharinduDasantha/Inventory-Management-System/blob/eb216eb0f2597d587ee5dda6d5174337f22f5197/Img%20-%204.png)
-![image alt](https://github.com/MrTharinduDasantha/Inventory-Management-System/blob/eb216eb0f2597d587ee5dda6d5174337f22f5197/Img%20-%205.png)
-![image alt](https://github.com/MrTharinduDasantha/Inventory-Management-System/blob/eb216eb0f2597d587ee5dda6d5174337f22f5197/Img%20-%206.png)
-![image alt](https://github.com/MrTharinduDasantha/Inventory-Management-System/blob/eb216eb0f2597d587ee5dda6d5174337f22f5197/Img%20-%207.png)
-![image alt](https://github.com/MrTharinduDasantha/Inventory-Management-System/blob/eb216eb0f2597d587ee5dda6d5174337f22f5197/Img%20-%208.png)
+![image alt](https://github.com/MrTharinduDasantha/Inventory-Management-System/blob/fe953d03bdc51c85b13a3fa574537fab09912c69/Img%20-%201.png)
+![image alt](https://github.com/MrTharinduDasantha/Inventory-Management-System/blob/fe953d03bdc51c85b13a3fa574537fab09912c69/Img%20-%202.png)
+![image alt](https://github.com/MrTharinduDasantha/Inventory-Management-System/blob/fe953d03bdc51c85b13a3fa574537fab09912c69/Img%20-%203.png)
+![image alt](https://github.com/MrTharinduDasantha/Inventory-Management-System/blob/fe953d03bdc51c85b13a3fa574537fab09912c69/Img%20-%204.png)
+![image alt](https://github.com/MrTharinduDasantha/Inventory-Management-System/blob/fe953d03bdc51c85b13a3fa574537fab09912c69/Img%20-%205.png)
+![image alt](https://github.com/MrTharinduDasantha/Inventory-Management-System/blob/fe953d03bdc51c85b13a3fa574537fab09912c69/Img%20-%206.png)
+![image alt](https://github.com/MrTharinduDasantha/Inventory-Management-System/blob/fe953d03bdc51c85b13a3fa574537fab09912c69/Img%20-%207.png)
+![image alt](https://github.com/MrTharinduDasantha/Inventory-Management-System/blob/fe953d03bdc51c85b13a3fa574537fab09912c69/Img%20-%208.png)
+![image alt](https://github.com/MrTharinduDasantha/Inventory-Management-System/blob/fe953d03bdc51c85b13a3fa574537fab09912c69/Img%20-%209.png)
+![image alt](https://github.com/MrTharinduDasantha/Inventory-Management-System/blob/fe953d03bdc51c85b13a3fa574537fab09912c69/Img%20-%2010.png)
+![image alt](https://github.com/MrTharinduDasantha/Inventory-Management-System/blob/fe953d03bdc51c85b13a3fa574537fab09912c69/Img%20-%2011.png)
+![image alt](https://github.com/MrTharinduDasantha/Inventory-Management-System/blob/fe953d03bdc51c85b13a3fa574537fab09912c69/Img%20-%2013.png)
 
 <h4 align="center"> Don't forget to leave a star ⭐️ </h4>
